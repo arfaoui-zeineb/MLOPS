@@ -6,3 +6,6 @@ __pycache__/
 # artefacts generes par le pipeline
 *.joblib
 reports/
+
+# logs du serveur et du cron
+*.log
