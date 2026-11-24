@@ -167,22 +167,22 @@ def predict(model, X, n=5):
 # --------------------------------------------------------------------------
 # Flows
 # --------------------------------------------------------------------------
-@flow(name="git")
+@flow(name="git", log_prints=True)
 def git_flow():
     pull_project()
 
 
-@flow(name="push")
+@flow(name="push", log_prints=True)
 def push_flow():
     push_project()
 
 
-@flow(name="install")
+@flow(name="install", log_prints=True)
 def install_flow():
     install_dependencies()
 
 
-@flow(name="code")
+@flow(name="code", log_prints=True)
 def code_flow(push=True):
     format_code()
     check_quality()
@@ -193,14 +193,14 @@ def code_flow(push=True):
         push_project()
 
 
-@flow(name="train")
+@flow(name="train", log_prints=True)
 def train_flow(model_type="xgboost"):
     X_train, _, y_train, _, scaler = prepare()
     model = train(X_train, y_train, model_type)
     save(model, scaler)
 
 
-@flow(name="evaluate")
+@flow(name="evaluate", log_prints=True)
 def evaluate_flow(threshold=0.5):
     _, X_test, _, y_test, _ = prepare()
     model = load()
@@ -209,7 +209,7 @@ def evaluate_flow(threshold=0.5):
     return metrics
 
 
-@flow(name="all")
+@flow(name="all", log_prints=True)
 def all_flow(model_type="xgboost", threshold=0.5):
     pull_project()
     install_dependencies()
