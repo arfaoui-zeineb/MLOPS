@@ -1,0 +1,8 @@
+[flake8]
+# Aligné sur black (longueur de ligne 88, E203 incompatible avec black)
+max-line-length = 88
+extend-ignore = E203
+exclude = .git,__pycache__,venv_ml,reports,mlruns
+# matplotlib.use("Agg") doit précéder l'import de pyplot
+per-file-ignores =
+    model_pipeline.py:E402

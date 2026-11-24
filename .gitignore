@@ -1,0 +1,8 @@
+# environnement et caches
+venv_ml/
+__pycache__/
+.pytest_cache/
+
+# artefacts generes par le pipeline
+*.joblib
+reports/
